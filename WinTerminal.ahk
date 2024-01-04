@@ -17,8 +17,10 @@ SwitchToWindowsTerminal() {
         }
     } else {
         Run "wt"
-        if WinWait( "ahk_exe WindowsTerminal.exe", 5) {
-            WinActivate "ahk_exe WindowsTerminal.exe"
+        if WinWait("ahk_exe WindowsTerminal.exe", , 5) {
+            if WinExist("ahk_exe WindowsTerminal.exe") {
+                WinActivate
+            }
         }
         ; Sleep 500
     }
