@@ -2,12 +2,17 @@
 function prompt
 {
     $loc = $executionContext.SessionState.Path.CurrentLocation;
-
-    $out = "PS $loc$('>' * ($nestedPromptLevel + 1)) ";
+    $out = ""
+    $osc7 = ""
+    $osc9 = ""
     if ($loc.Provider.Name -eq "FileSystem")
     {
-        $out += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
+        $ansi_escape = [char]27
+        $provider_path = $loc.ProviderPath -Replace "\\", "/"
+        $osc9 += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
+        $osc7 = "$ansi_escape]7;file://${env:COMPUTERNAME}/${provider_path}${ansi_escape}\"
     }
+    $out += "${osc9}${osc7}PS $loc$('>' * ($nestedPromptLevel + 1)) ";
     return $out
 }
 
