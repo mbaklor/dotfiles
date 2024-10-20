@@ -98,5 +98,6 @@ Set-Alias touch ni
 Set-Alias grep findstr
 Set-Alias lg lazygit
 Set-Alias ex explorer
+Set-Alias vim nvim
 # del alias:diff -Force
 # Set-Alias diff 'C:\Program Files\Git\usr\bin\diff.exe'
