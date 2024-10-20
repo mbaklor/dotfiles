@@ -60,7 +60,7 @@ function conf([Parameter(Mandatory=$true)][string]$config)
 
 function ffd()
 {
-    fd -d 1 -t d -u . $dev | fzf | cd
+    fd -d 1 -t d -u . $env:dev $env:dev/alerts-server | fzf | cd
 }
 
 function hdir([string]$new_dir)
