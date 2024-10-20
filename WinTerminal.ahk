@@ -1,9 +1,9 @@
 ﻿#Requires AutoHotkey v2.0
 
-SwitchToWindowsTerminal() {
+SwitchToWindow(WindowID, runCmd) {
     userprofile := EnvGet("USERPROFILE")
     SetWorkingDir userprofile
-    windowHandleID := WinExist("ahk_exe WindowsTerminal.exe")
+    windowHandleID := WinExist(WindowID)
     windowExists := windowHandleID > 0
 
     if (windowExists) {
@@ -16,9 +16,9 @@ SwitchToWindowsTerminal() {
             WinShow windowHandleID
         }
     } else {
-        Run "wt"
-        if WinWait("ahk_exe WindowsTerminal.exe", , 5) {
-            if WinExist("ahk_exe WindowsTerminal.exe") {
+        Run runCmd
+        if WinWait(WindowID, , 5) {
+            if WinExist(WindowID) {
                 WinActivate
             }
         }
@@ -26,4 +26,13 @@ SwitchToWindowsTerminal() {
     }
 }
 
-#`::SwitchToWindowsTerminal()
+SwitchToWindowsTerminal() {
+    SwitchToWindow("ahk_exe WindowsTerminal.exe", "wt")
+}
+
+SwitchToWezterm() {
+    SwitchToWindow("ahk_exe wezterm-gui.exe", "wezterm-gui")
+}
+
+#+`::SwitchToWindowsTerminal()
+#`::SwitchToWezterm()
