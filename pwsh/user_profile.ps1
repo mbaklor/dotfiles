@@ -56,7 +56,7 @@ function conf([Parameter(Mandatory=$true)][string]$config)
     }
     if ($config -eq "ps")
     {
-        pushd ~/.config/powershell;
+        pushd ~/.dotfiles/pwsh;
         nvim user_profile.ps1;
         popd
         . $PROFILE;
