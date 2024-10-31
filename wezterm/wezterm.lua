@@ -27,28 +27,28 @@ end)
 
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
-    { key = "a", mods = "LEADER|CTRL", action = action.SendKey { key = "a", mods = "CTRL" } },
+    { key = "a", mods = "LEADER|CTRL", action = action.SendKey({ key = "a", mods = "CTRL" }) },
     { key = "y", mods = "LEADER",      action = action.ActivateCopyMode },
     -- panes
-    { key = "s", mods = "LEADER",      action = action.SplitVertical { domain = 'CurrentPaneDomain' } },
-    { key = "v", mods = "LEADER",      action = action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-    { key = "c", mods = "LEADER",      action = action.CloseCurrentPane { confirm = true } },
+    { key = "s", mods = "LEADER",      action = action.SplitVertical({ domain = 'CurrentPaneDomain' }) },
+    { key = "v", mods = "LEADER",      action = action.SplitHorizontal({ domain = 'CurrentPaneDomain' }) },
+    { key = "c", mods = "LEADER",      action = action.CloseCurrentPane({ confirm = true }) },
     { key = "z", mods = "LEADER",      action = action.TogglePaneZoomState },
-    { key = "r", mods = "LEADER",      action = action.ActivateKeyTable { name = "resize_pane", one_shot = false } },
+    { key = "r", mods = "LEADER",      action = action.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
 
     -- pane navigation
-    { key = "h", mods = "LEADER",      action = action.ActivatePaneDirection 'Left' },
-    { key = "j", mods = "LEADER",      action = action.ActivatePaneDirection 'Down' },
-    { key = "k", mods = "LEADER",      action = action.ActivatePaneDirection 'Up' },
-    { key = "l", mods = "LEADER",      action = action.ActivatePaneDirection 'Right' },
+    { key = "h", mods = "LEADER",      action = action.ActivatePaneDirection('Left') },
+    { key = "j", mods = "LEADER",      action = action.ActivatePaneDirection('Down') },
+    { key = "k", mods = "LEADER",      action = action.ActivatePaneDirection('Up') },
+    { key = "l", mods = "LEADER",      action = action.ActivatePaneDirection('Right') },
 
     -- tabs
-    { key = "t", mods = "LEADER",      action = action.SpawnTab 'CurrentPaneDomain' },
+    { key = "t", mods = "LEADER",      action = action.SpawnTab('CurrentPaneDomain') },
     { key = "[", mods = "LEADER",      action = action.ActivateTabRelative(-1) },
     { key = "]", mods = "LEADER",      action = action.ActivateTabRelative(1) },
 
     -- workspaces
-    { key = "w", mods = "LEADER",      action = action.ShowLauncherArgs { flags = "FUZZY|WORKSPACES" } },
+    { key = "w", mods = "LEADER",      action = action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
     { key = "f", mods = "LEADER",      action = wezterm.action_callback(sessionizer.toggle) },
 }
 
