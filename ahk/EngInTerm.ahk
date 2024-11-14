@@ -3,22 +3,11 @@ IsWT() {
     SetCapsLockState 0
 }
 
-#HotIf WinActive("ahk_exe WindowsTerminal.exe") or WinActive("ahk_exe wezterm-gui.exe")
+#HotIf WinActive("ahk_exe wezterm-gui.exe")
     CapsLock::Escape
 
-waitLoop() {
-    loop {
-        if WinActive("ahk_exe WindowsTerminal.exe") or WinActive("ahk_exe wezterm-gui.exe") {
-            break
-        }
-    }
+loop {
+    WinWaitActive("ahk_exe wezterm-gui.exe")
     IsWT()
-    loop {
-        if !WinActive("ahk_exe WindowsTerminal.exe") and !WinActive("ahk_exe wezterm-gui.exe") {
-            break
-        }
-    }
-    waitLoop()
+    WinWaitNotActive("ahk_exe wezterm-gui.exe")
 }
-
-waitLoop()
