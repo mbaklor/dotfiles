@@ -44,12 +44,14 @@ config.keys = {
 
     -- tabs
     { key = "t", mods = "LEADER",      action = action.SpawnTab('CurrentPaneDomain') },
-    { key = "[", mods = "LEADER",      action = action.ActivateTabRelative(-1) },
-    { key = "]", mods = "LEADER",      action = action.ActivateTabRelative(1) },
+    { key = "p", mods = "LEADER",      action = action.ActivateTabRelative(-1) },
+    { key = "n", mods = "LEADER",      action = action.ActivateTabRelative(1) },
 
     -- workspaces
     { key = "w", mods = "LEADER",      action = action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
     { key = "f", mods = "LEADER",      action = wezterm.action_callback(sessionizer.toggle) },
+    { key = "[", mods = "LEADER",      action = action.SwitchWorkspaceRelative(-1) },
+    { key = "]", mods = "LEADER",      action = action.SwitchWorkspaceRelative(1) },
 }
 
 for i = 1, 9 do
