@@ -44,6 +44,7 @@ config.keys = {
 
     -- tabs
     { key = "t", mods = "LEADER",      action = action.SpawnTab('CurrentPaneDomain') },
+    { key = "g", mods = "LEADER",      action = action.SpawnCommandInNewTab({ args = { 'lazygit' } }) },
     { key = "p", mods = "LEADER",      action = action.ActivateTabRelative(-1) },
     { key = "n", mods = "LEADER",      action = action.ActivateTabRelative(1) },
 
