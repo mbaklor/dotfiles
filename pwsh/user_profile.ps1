@@ -33,6 +33,13 @@ function prompt
 Set-PSReadLineKeyHandler -Chord UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord DownArrow -Function HistorySearchForward
 
+Set-PSReadLineKeyHandler -Chord Ctrl+y -Function AcceptSuggestion
+Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Chord Ctrl+a -Function BeginningOfLine
+Set-PSReadLineKeyHandler -Chord Ctrl+e -Function EndOfLine
+Set-PSReadLineKeyHandler -Chord Ctrl+u -Function DeleteLine
+
 Set-PSReadLineKeyHandler -Chord Ctrl+f -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("ffd")
