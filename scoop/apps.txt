@@ -5,7 +5,6 @@ eza
 fd
 ffmpeg
 fzf
-gcc
 gsudo
 hack-nf
 hack-nf-mono
@@ -14,6 +13,7 @@ innounp
 jq
 lazygit
 less
+mingw-mstorsjo-llvm-ucrt
 neovim
 netcat
 nmap
