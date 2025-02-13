@@ -1,5 +1,6 @@
 7zip
 base64
+clipboard
 eza
 fd
 ffmpeg

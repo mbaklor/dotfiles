@@ -1,5 +1,8 @@
 [manager]
 
+prepend_keymap = [
+    { on = "y",          run = ['shell -- cb copy %0', "yank"]}
+]
 append_keymap = [
     { on = [ "g", "l" ], run = "cd ~/.dotfiles", desc = "Go to the dotfiles directory" },
     { on = [ "g", "a" ], run = "cd %APPDATA%",   desc = "Got to app data directory"},
