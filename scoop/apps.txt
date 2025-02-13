@@ -1,5 +1,6 @@
 7zip
 base64
+eza
 fd
 ffmpeg
 fzf
