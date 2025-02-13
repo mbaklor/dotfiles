@@ -120,7 +120,8 @@ function ll
     exa -la --icons --group-directories-first --git
 }
 
-. "C:\Users\Michael-PC\Documents\PowerShell\zoxide.ps1"
+$docs = [Environment]::GetFolderPath("MyDocuments")
+. "$docs\PowerShell\zoxide.ps1"
 
 # Aliases
 Set-Alias touch ni
