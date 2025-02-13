@@ -12,11 +12,8 @@ end
 
 local rootPath = home .. "/development"
 
-M.toggle = function(window, pane)
-    local projects = {
-        { label = "domain:SSH:bd.cloud", id = "SSH:bd.cloud" },
-        { label = "domain:WSL:Ubuntu",   id = "WSL:Ubuntu" },
-    }
+M.toggle_dev = function(window, pane)
+    local projects = {}
 
     local success, stdout, stderr = wezterm.run_child_process({
         "fd",
@@ -48,13 +45,6 @@ M.toggle = function(window, pane)
             action = wezterm.action_callback(function(win, _, id, label)
                 if not id and not label then
                     wezterm.log_info("Cancelled")
-                elseif string.sub(label, 1, string.len("domain:")) == "domain:" then
-                    local actual_label = string.sub(label, string.len("domain:") + 1)
-                    wezterm.log_info("Selected " .. actual_label)
-                    win:perform_action(
-                        act.SwitchToWorkspace({ name = id, spawn = { domain = { DomainName = actual_label } } }),
-                        pane
-                    )
                 else
                     wezterm.log_info("Selected " .. label)
                     win:perform_action(
