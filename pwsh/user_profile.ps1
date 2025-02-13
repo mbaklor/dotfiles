@@ -63,7 +63,7 @@ function conf([Parameter(Mandatory=$true)][string]$config)
     }
     if ($config -eq "ps")
     {
-        pushd ~/.dotfiles/pwsh;
+        pushd $env:USERPROFILE/.dotfiles/pwsh;
         nvim user_profile.ps1;
         popd
         . $PROFILE;
@@ -101,9 +101,22 @@ function wf()
     }
 }
 
+function y()
+{
+    $tmp = [System.IO.Path]::GetTempFileName()
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path)
+    {
+        Set-Location -LiteralPath $cwd
+    }
+    Remove-Item -Path $tmp
+}
+
 # Terminal Icons
 Import-Module Terminal-Icons
 
+. "C:\Users\Michael-PC\Documents\PowerShell\zoxide.ps1"
 
 # Aliases
 Set-Alias touch ni
