@@ -3,14 +3,10 @@ local act = wezterm.action
 
 local M = {}
 
-local home = ""
 if wezterm.target_triple:find("windows") ~= nil then
-    home = os.getenv("USERPROFILE") or ""
-else
-    home = os.getenv("HOME") or ""
 end
 
-local rootPath = home .. "/development"
+local rootPath = wezterm.home_dir .. "/development"
 
 M.toggle_dev = function(window, pane)
     local projects = {}

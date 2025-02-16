@@ -5,12 +5,6 @@ local config = wezterm.config_builder()
 local action = wezterm.action
 
 config.color_scheme = 'Catppuccin Frappe'
-local home = ""
-if wezterm.target_triple:find("windows") ~= nil then
-    home = os.getenv("USERPROFILE") or ""
-else
-    home = os.getenv("HOME") or ""
-end
 config.font = wezterm.font('Hack Nerd Font Mono', { weight = 'Regular' })
 config.font_size = 12
 
@@ -58,7 +52,7 @@ config.keys = {
 
     -- workspaces
     { key = "w", mods = "LEADER",      action = action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
-    { key = "w", mods = "LEADER|CTRL", action = action.SwitchToWorkspace({ name = "default", spawn = { cwd = home } }) },
+    { key = "w", mods = "LEADER|CTRL", action = action.SwitchToWorkspace({ name = "default", spawn = { cwd = wezterm.home_dir } }) },
     { key = "u", mods = "LEADER",      action = action.SwitchToWorkspace({ name = "WSL", spawn = { domain = { DomainName = "WSL:Ubuntu" } } }) },
     { key = "f", mods = "LEADER",      action = wezterm.action_callback(sessionizer.toggle_dev) },
     { key = "f", mods = "LEADER|CTRL", action = action.ShowLauncherArgs({ flags = "FUZZY|DOMAINS" }) },
