@@ -4,7 +4,35 @@ local sessionizer = require('sessionizer')
 local config = wezterm.config_builder()
 local action = wezterm.action
 
-config.color_scheme = 'Catppuccin Frappe'
+local ctp = wezterm.plugin.require("https://github.com/mbaklor/ctp-wezterm")
+ctp.apply_to_config(config, {
+    flavor = "macchiato",
+})
+
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+bar.apply_to_config(config, {
+    position = "top",
+    separator = {
+        space = 1,
+        left_icon = wezterm.nerdfonts.cod_chevron_right,
+        right_icon = wezterm.nerdfonts.cod_chevron_left,
+        field_icon = wezterm.nerdfonts.indent_line,
+    },
+    modules = {
+        pane = {
+            enabled = false
+        },
+        username = {
+            enabled = false
+        },
+        hostname = {
+            enabled = false
+        },
+    }
+})
+
+config.colors.tab_bar.active_tab.bg_color = ctp.get_color("macchiato", "blue")
+
 config.font = wezterm.font('Hack Nerd Font Mono', { weight = 'Regular' })
 config.font_size = 12
 
@@ -77,4 +105,19 @@ config.key_tables = {
     },
 }
 
+-- wezterm.status_update_interval = 1000
+-- wezterm.on('update-status', function(window, pane)
+--     local left_status = {
+--         { Background = { Color = ctp.get_color("macchiato", "blue") } },
+--         { Text = "  " } }
+--     if window:leader_is_active() then
+--         left_status = {
+--             { Background = { Color = ctp.get_color("macchiato", "peach") } },
+--             { Foreground = { Color = ctp.get_color("macchiato", "crust") } },
+--             { Text = "> " }
+--         }
+--     end
+--     window:set_left_status(wezterm.format(left_status))
+-- end)
+--
 return config

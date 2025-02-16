@@ -3,7 +3,9 @@ local act = wezterm.action
 
 local M = {}
 
+local sep = "/"
 if wezterm.target_triple:find("windows") ~= nil then
+    sep = "\\"
 end
 
 local rootPath = wezterm.home_dir .. "/development"
@@ -30,9 +32,9 @@ M.toggle_dev = function(window, pane)
     end
 
     for line in stdout:gmatch("([^\n]*)\n?") do
-        local project = line:gsub("/.git/$", "")
+        local project = line:gsub(sep .. "$", "")
         local label = project
-        local id = project:gsub(".*/", "")
+        local id = project:gsub(".*" .. sep, "")
         table.insert(projects, { label = tostring(label), id = tostring(id) })
     end
 
