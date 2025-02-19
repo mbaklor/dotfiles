@@ -1,5 +1,7 @@
-[plugin]
-deps = []
+[[plugin.deps]]
+use = "Tyarel8/goto-drives"
+rev = "bc28fc8"
+hash = "bdf27455e66756500004ceb6e4d5d309"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"

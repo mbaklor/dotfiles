@@ -1,7 +1,8 @@
 [manager]
 
 prepend_keymap = [
-    { on = "y",          run = ['shell -- cb copy %0', "yank"]}
+    { on = "y",          run = ['shell -- cb copy %0', "yank"]},
+    { on = [ "g", ":" ], run  = "plugin goto-drives", desc = "Go to drives" },
 ]
 append_keymap = [
     { on = [ "g", "l" ], run = "cd ~/.dotfiles", desc = "Go to the dotfiles directory" },
