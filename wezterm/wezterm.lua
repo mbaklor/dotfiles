@@ -14,8 +14,8 @@ bar.apply_to_config(config, {
     position = "top",
     separator = {
         space = 1,
-        left_icon = wezterm.nerdfonts.cod_chevron_right,
-        right_icon = wezterm.nerdfonts.cod_chevron_left,
+        left_icon = wezterm.nerdfonts.pl_left_soft_divider,
+        right_icon = wezterm.nerdfonts.pl_right_soft_divider,
         field_icon = wezterm.nerdfonts.indent_line,
     },
     modules = {
@@ -31,7 +31,7 @@ bar.apply_to_config(config, {
     }
 })
 
-config.colors.tab_bar.active_tab.bg_color = ctp.get_color("macchiato", "blue")
+config.colors.tab_bar.active_tab.bg_color = ctp.get_color("macchiato", "green")
 
 config.font = wezterm.font('Hack Nerd Font Mono', { weight = 'Regular' })
 config.font_size = 12
