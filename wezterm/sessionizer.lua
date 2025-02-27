@@ -59,4 +59,36 @@ M.toggle_dev = function(window, pane)
     )
 end
 
+
+M.toggle_domain = function(window, pane)
+    local domains = wezterm.mux.all_domains()
+    table.sort(domains, function(a, b)
+        return a:name() < b:name()
+    end)
+    local list = {}
+    for _, domain in ipairs(domains) do
+        table.insert(list, { label = domain:name(), id = domain:name() })
+    end
+
+    window:perform_action(
+        act.InputSelector({
+            action = wezterm.action_callback(function(win, _, id, label)
+                if not id and not label then
+                    wezterm.log_info("Cancelled")
+                else
+                    wezterm.log_info("Selected " .. label)
+                    win:perform_action(
+                        act.SwitchToWorkspace({ name = id, spawn = { domain = { DomainName = label } } }),
+                        pane
+                    )
+                end
+            end),
+            fuzzy = true,
+            title = "Select domain",
+            choices = list,
+        }),
+        pane
+    )
+end
+
 return M

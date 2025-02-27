@@ -83,7 +83,7 @@ config.keys = {
     { key = "w", mods = "LEADER|CTRL", action = action.SwitchToWorkspace({ name = "default", spawn = { cwd = wezterm.home_dir } }) },
     { key = "u", mods = "LEADER",      action = action.SwitchToWorkspace({ name = "WSL", spawn = { domain = { DomainName = "WSL:Ubuntu" } } }) },
     { key = "f", mods = "LEADER",      action = wezterm.action_callback(sessionizer.toggle_dev) },
-    { key = "f", mods = "LEADER|CTRL", action = action.ShowLauncherArgs({ flags = "FUZZY|DOMAINS" }) },
+    { key = "f", mods = "LEADER|CTRL", action = wezterm.action_callback(sessionizer.toggle_domain) },
     { key = "[", mods = "LEADER",      action = action.SwitchWorkspaceRelative(-1) },
     { key = "]", mods = "LEADER",      action = action.SwitchWorkspaceRelative(1) },
 }
