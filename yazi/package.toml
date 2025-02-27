@@ -3,6 +3,11 @@ use = "Tyarel8/goto-drives"
 rev = "bc28fc8"
 hash = "bdf27455e66756500004ceb6e4d5d309"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "5186af7"
+hash = "98dfe8fd31e195ea3dc1a16d2d56941e"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
 rev = "1a419b2"

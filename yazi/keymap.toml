@@ -1,10 +1,25 @@
-[manager]
+[[manager.prepend_keymap]]
+    on = "y"
+    run = ['shell -- cb copy %*', "yank"]
+    desc = "Yank selected file (copy) and file content"
+    for = "windows"
 
-prepend_keymap = [
-    { on = "y",          run = ['shell -- cb copy %0', "yank"]},
-    { on = [ "g", ":" ], run  = "plugin goto-drives", desc = "Go to drives" },
-]
-append_keymap = [
-    { on = [ "g", "l" ], run = "cd ~/.dotfiles", desc = "Go to the dotfiles directory" },
-    { on = [ "g", "a" ], run = "cd %APPDATA%",   desc = "Got to app data directory"},
-]
+[[manager.prepend_keymap]]
+    on = [ "g", ":" ]
+    run  = "plugin goto-drives"
+    desc = "Go to drives"
+
+[[manager.append_keymap]]
+    on = [ "g", "l" ]
+    run = "cd ~/.dotfiles"
+    desc = "Go to the dotfiles directory"
+
+[[manager.append_keymap]]
+    on = [ "g", "a" ]
+    run = "cd %APPDATA%"
+    desc = "Got to app data directory"
+
+[[manager.append_keymap]]
+    on   = "T"
+    run  = "plugin toggle-pane max-preview"
+    desc = "Maximize or restore the preview pane"
