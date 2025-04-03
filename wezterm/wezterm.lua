@@ -77,10 +77,12 @@ config.keys = {
     { key = "e", mods = "LEADER",      action = action.SpawnCommandInNewTab({ args = { 'yazi' } }) },
     { key = "p", mods = "LEADER",      action = action.ActivateTabRelative(-1) },
     { key = "n", mods = "LEADER",      action = action.ActivateTabRelative(1) },
+    { key = "p", mods = "LEADER|CTRL", action = action.MoveTabRelative(-1) },
+    { key = "n", mods = "LEADER|CTRL", action = action.MoveTabRelative(1) },
 
     -- workspaces
     { key = "w", mods = "LEADER",      action = action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
-    { key = "w", mods = "LEADER|CTRL", action = action.SwitchToWorkspace({ name = "default", spawn = { cwd = wezterm.home_dir } }) },
+    { key = "w", mods = "LEADER|CTRL", action = action.SwitchToWorkspace({ name = "default", spawn = { domain = { DomainName = "local" }, cwd = wezterm.home_dir } }) },
     { key = "u", mods = "LEADER",      action = action.SwitchToWorkspace({ name = "WSL", spawn = { domain = { DomainName = "WSL:Ubuntu" } } }) },
     { key = "f", mods = "LEADER",      action = wezterm.action_callback(sessionizer.toggle_dev) },
     { key = "f", mods = "LEADER|CTRL", action = wezterm.action_callback(sessionizer.toggle_domain) },
