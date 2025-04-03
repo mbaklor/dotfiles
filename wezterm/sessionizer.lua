@@ -8,7 +8,7 @@ if wezterm.target_triple:find("windows") ~= nil then
     sep = "\\"
 end
 
-local rootPath = wezterm.home_dir .. "/development"
+local rootPath = os.getenv("DEV")
 
 M.toggle_dev = function(window, pane)
     local projects = {}
@@ -22,7 +22,7 @@ M.toggle_dev = function(window, pane)
         "-u",
         ".",
         rootPath,
-        rootPath .. "/alerts-server"
+        rootPath .. sep .. "alerts-server"
         -- add more paths here
     })
 
@@ -46,7 +46,14 @@ M.toggle_dev = function(window, pane)
                 else
                     wezterm.log_info("Selected " .. label)
                     win:perform_action(
-                        act.SwitchToWorkspace({ name = id, spawn = { cwd = label } }),
+                        act.SwitchToWorkspace({
+                            name = id,
+                            spawn = {
+                                domain = { DomainName = "local" },
+                                cwd = label,
+                                args = { 'pwsh', '-c', 'wezterm', 'cli', 'spawn', '--cwd', label, '&', 'nvim', },
+                            }
+                        }),
                         pane
                     )
                 end
