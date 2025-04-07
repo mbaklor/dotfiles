@@ -51,7 +51,7 @@ M.toggle_dev = function(window, pane)
                             spawn = {
                                 domain = { DomainName = "local" },
                                 cwd = label,
-                                args = { 'pwsh', '-c', 'wezterm', 'cli', 'spawn', '--cwd', label, '&', 'nvim', },
+                                args = { 'pwsh', '-NoExit', '-c', 'wezterm', 'cli', 'spawn', '--cwd', label, '&', 'nvim', },
                             }
                         }),
                         pane
