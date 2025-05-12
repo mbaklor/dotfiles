@@ -23,3 +23,9 @@
     on   = "T"
     run  = "plugin toggle-pane max-preview"
     desc = "Maximize or restore the preview pane"
+
+[[manager.append_keymap]]
+    on = [ "m", "d" ]
+    run = "linemode size_and_mtime"
+    desc = "Linemode: size and mtime"
+
