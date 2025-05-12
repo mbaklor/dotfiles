@@ -36,11 +36,12 @@ config.colors.tab_bar.active_tab.bg_color = ctp.get_color("macchiato", "green")
 config.font = wezterm.font('Hack Nerd Font Mono', { weight = 'Regular' })
 config.font_size = 12
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.use_fancy_tab_bar = false
 -- config.hide_tab_bar_if_only_one_tab = true
 
 if wezterm.target_triple:find("windows") ~= nil then
+    config.window_decorations = "RESIZE"
     config.window_background_opacity = 0.85
     config.win32_system_backdrop = "Acrylic"
     config.default_prog = { "pwsh" }
