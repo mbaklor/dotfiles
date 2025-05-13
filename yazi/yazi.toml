@@ -5,7 +5,8 @@ linemode = "size_and_mtime"
 
 [opener]
 edit = [
-    { run = 'nvim %*',    block = true,  desc = "nvim", for = "windows" },
+    { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+    { run = 'nvim %*',            desc = "Vim",     block = true, for = "windows" },
 ] 
 
 [[plugin.prepend_fetchers]]
