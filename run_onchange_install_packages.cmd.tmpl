@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+{{ range .packages.windows.buckets -}}
+scoop bucket add {{ . | quote }} & ^
+{{- end -}}
+{{ range $i, $v := .packages.windows.apps -}}
+{{if $i}} & ^{{end}}
+scoop install {{ $v | quote }}
+{{- end -}}
+{{ end -}}
