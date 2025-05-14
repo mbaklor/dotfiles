@@ -16,20 +16,6 @@ function prompt
     return $out
 }
 
-# # Bash touch function
-# function touch([string]$filetotouch)
-# {
-#     if(test-path $filetotouch)
-#     {
-#         Set-ItemProperty -Path $filetotouch -Name LastWriteTime -Value (get-date)
-#         # “File $filetotouch timestamp succesfully updated”
-#     } else
-#     {
-#         Set-Content -Path ($filetotouch) -Value ($null);
-#         # “File $filetotouch succesfully created”
-#     }
-# }
-
 Set-PSReadLineKeyHandler -Chord UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord DownArrow -Function HistorySearchForward
 
