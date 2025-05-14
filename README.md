@@ -19,7 +19,7 @@ winget install -e --id twpayne.chezmoi
 Once both are installed run
 
 ```winbatch
-chezmoi init https://github.com/mbakloe/.dotfiles.git
+chezmoi init https://github.com/mbaklor/dotfiles.git
 chezmoi apply
 ```
 
