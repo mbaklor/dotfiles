@@ -4,6 +4,10 @@
 winget install -e --id {{ . | quote }} & ^
 {{ end -}}
 
+SETX EDITOR nvim
+SETX SHELL pwsh
+SETX YAZI_FILE_ONE "C:\Program Files\Git\usr\bin\file.exe"
+
 powershell -ExecutionPolicy Bypass -C "Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression"
 
 {{ end -}}
