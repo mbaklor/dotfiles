@@ -76,9 +76,7 @@ function conf([Parameter(Mandatory=$true)][string]$config)
     }
     if ($config -eq "ps")
     {
-        pushd $env:USERPROFILE/.dotfiles/pwsh;
-        nvim user_profile.ps1;
-        popd
+        chezmoi edit --apply Documents/PowerShell/Microsoft.PowerShell_profile.ps1
         . $PROFILE;
     }
 }
