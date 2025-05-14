@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+{{ range .packages.windows.winget -}}
+winget install -e --id {{ . | quote }} & ^
+{{ end -}}
+
+powershell -ExecutionPolicy Bypass -C "Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression"
+
+{{ end -}}
