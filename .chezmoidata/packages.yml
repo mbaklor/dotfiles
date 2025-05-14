@@ -3,7 +3,7 @@ packages:
     winget:
       - "Microsoft.PowerShell"
       - "AutoHotkey.AutoHotkey"
-      - "Golang.Go"
+      - "GoLang.Go"
     buckets:
       - "main"
       - "extras"
