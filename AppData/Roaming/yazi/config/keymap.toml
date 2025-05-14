@@ -11,7 +11,7 @@
 
 [[manager.append_keymap]]
     on = [ "g", "l" ]
-    run = "cd ~/.dotfiles"
+    run = "cd ~/.local/share/chezmoi"
     desc = "Go to the dotfiles directory"
 
 [[manager.append_keymap]]
