@@ -24,3 +24,5 @@ chezmoi apply
 ```
 
 now we should have all our dotfiles in place as well as the apps we need installed
+
+In case the apply fails to create symlinks with `required privilege is not held by the client`, enable developer mode in windows settings
