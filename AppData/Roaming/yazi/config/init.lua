@@ -1,4 +1,4 @@
-require("git"):setup()
+require("git"):setup({ order = 500 })
 
 function Linemode:size_and_mtime()
 	local time = math.floor(self._file.cha.mtime or 0)
