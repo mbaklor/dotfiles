@@ -1,0 +1,8 @@
+REM profile hash {{ include "readonly_Documents/PowerShell/Microsoft.PowerShell_profile.ps1" | sha256sum }}
+REM zoxide hash {{ include "readonly_Documents/PowerShell/zoxide.ps1" | sha256sum }}
+
+for /f "tokens=2* skip=2" %%a in ('reg query "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v personal') do (
+    if /I NOT %USERPROFILE%\Documents==%%b (
+        xcopy %USERPROFILE%\Documents\PowerShell\ %%b\Powershell\ /y
+    )
+)
