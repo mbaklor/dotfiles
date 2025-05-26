@@ -1,38 +1,39 @@
 packages:
   windows:
     winget:
-      - Microsoft.PowerShell
       - AutoHotkey.AutoHotkey
       - GoLang.Go
-    buckets:
-      - main
-      - extras
-      - versions
-      - nerd-fonts
-    apps:
-      - 7zip
-      - clipboard
-      - eza
-      - fd
-      - ffmpeg
-      - fzf
-      - gsudo
-      - hack-nf
-      - hack-nf-mono
-      - imagemagick
-      - jq
-      - lazygit
-      - less
-      - lua-language-server
-      - mingw-mstorsjo-llvm-ucrt
-      - neovim-nightly
-      - nodejs
-      - nsis
-      - poppler
-      - resvg
-      - ripgrep
-      - scoop-search
-      - task
-      - wezterm
-      - yazi
-      - zoxide
+      - Microsoft.PowerShell
+    scoop:
+      buckets:
+        - main
+        - extras
+        - versions
+        - nerd-fonts
+      apps:
+        - 7zip
+        - clipboard
+        - eza
+        - fd
+        - ffmpeg
+        - fzf
+        - gsudo
+        - hack-nf
+        - hack-nf-mono
+        - imagemagick
+        - jq
+        - lazygit
+        - less
+        - lua-language-server
+        - mingw-mstorsjo-llvm-ucrt
+        - neovim-nightly
+        - nodejs
+        - nsis
+        - poppler
+        - resvg
+        - ripgrep
+        - scoop-search
+        - task
+        - wezterm
+        - yazi
+        - zoxide
