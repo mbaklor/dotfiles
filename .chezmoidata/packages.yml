@@ -26,7 +26,6 @@ packages:
       - lua-language-server
       - mingw-mstorsjo-llvm-ucrt
       - neovim-nightly
-      - netcat
       - nodejs
       - nsis
       - poppler
