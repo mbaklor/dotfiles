@@ -8,7 +8,10 @@ ECHO.
 setlocal enabledelayedexpansion
 for /f "tokens=2* skip=2" %%a in ('reg query "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" /v personal') do (
     set same=0
-    if /I NOT !USERPROFILE!\Documents==%%b (
+    if /I !USERPROFILE!\Documents==%%b (
+        set same=1
+    )
+    if /I %%USERPROFILE%%\Documents==%%b (
         set same=1
     )
 
