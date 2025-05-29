@@ -38,6 +38,8 @@ config.font_size = 12
 
 config.window_decorations = "NONE"
 config.use_fancy_tab_bar = false
+config.default_prog = { "zsh" }
+config.enable_wayland = false
 -- config.hide_tab_bar_if_only_one_tab = true
 
 if wezterm.target_triple:find("windows") ~= nil then
