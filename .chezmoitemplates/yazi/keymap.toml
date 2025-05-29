@@ -1,8 +1,9 @@
+    {{ if eq .chezmoi.os "windows" -}}
 [[manager.prepend_keymap]]
     on = "y"
     run = ['shell -- cb copy %*', "yank"]
     desc = "Yank selected file (copy) and file content"
-    for = "windows"
+    {{- end }}
 
 [[manager.prepend_keymap]]
     on = [ "g", ":" ]
