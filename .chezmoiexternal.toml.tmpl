@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "windows" -}}
+["./AppData/Local/nvim"]
+{{end -}}
+{{ if eq .chezmoi.os "linux" -}}
+[".config/nvim"]
+{{end -}}
+    type = "git-repo"
+    url = "https://github.com/mbaklor/nvim"
