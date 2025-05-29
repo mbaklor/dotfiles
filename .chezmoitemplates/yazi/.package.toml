@@ -1,29 +1,29 @@
 [[plugin.deps]]
 use = "Tyarel8/goto-drives"
-rev = "4db94ab"
-hash = "dab4a04d55559b47ab4a84b2277ff5a8"
+rev = "ea5ad4e"
+hash = "8f81ee91bc039adec835886a63a86671"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "55bf699"
-hash = "590c40befd4c253564a10ab3829dc34"
+rev = "a54b96a"
+hash = "a65dc998e4742a4f6561623e6154e1b9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "55bf699"
-hash = "394cc54375e5638237043d23ad34d478"
+rev = "a54b96a"
+hash = "c2c9ad90a84f9d86188a2b8b73a289c1"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "02f3fc6"
-hash = "2bcf14da7d6b95ecf32956ed2bc14c9e"
+rev = "657aaf3"
+hash = "2fb50319f63090505d4dd93f6446ae01"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "02f3fc6"
-hash = "7340b4b215543e846a271256bea7cfe1"
+rev = "657aaf3"
+hash = "ef5542e8496366bbfce4b07ed4fdf826"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "02f3fc6"
-hash = "800799d6ab64ece50a4e516641b96fa0"
+rev = "657aaf3"
+hash = "ac5f95aac5ce8253ae7821e9f2058ac4"
