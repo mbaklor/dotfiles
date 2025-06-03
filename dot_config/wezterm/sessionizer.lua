@@ -9,6 +9,12 @@ if wezterm.target_triple:find("windows") ~= nil then
 end
 
 local rootPath = os.getenv("DEV")
+wezterm.log_info(rootPath)
+if rootPath == nil then
+	rootPath = wezterm.home_dir .. sep .. "development"
+end
+
+wezterm.log_info(rootPath)
 
 M.toggle_dev = function(window, pane)
 	local projects = {}
@@ -22,7 +28,7 @@ M.toggle_dev = function(window, pane)
 		"-u",
 		".",
 		rootPath,
-		rootPath .. sep .. "alerts-server",
+		-- rootPath .. sep .. "alerts-server",
 		-- add more paths here
 	})
 
