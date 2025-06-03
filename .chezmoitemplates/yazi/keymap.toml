@@ -1,31 +1,31 @@
 {{ if eq .chezmoi.os "windows" -}}
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
     on = "y"
     run = ['shell -- cb copy %*', "yank"]
     desc = "Yank selected file (copy) and file content"
 {{- end }}
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
     on = [ "g", ":" ]
     run  = "plugin goto-drives"
     desc = "Go to drives"
 
-[[manager.append_keymap]]
+[[mgr.append_keymap]]
     on = [ "g", "l" ]
     run = "cd ~/.local/share/chezmoi"
     desc = "Go to the dotfiles directory"
 
-[[manager.append_keymap]]
+[[mgr.append_keymap]]
     on = [ "g", "a" ]
     run = "cd %APPDATA%"
     desc = "Got to app data directory"
 
-[[manager.append_keymap]]
+[[mgr.append_keymap]]
     on   = "T"
     run  = "plugin toggle-pane max-preview"
     desc = "Maximize or restore the preview pane"
 
-[[manager.append_keymap]]
+[[mgr.append_keymap]]
     on = [ "m", "d" ]
     run = "linemode size_and_mtime"
     desc = "Linemode: size and mtime"
