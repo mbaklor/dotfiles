@@ -4,22 +4,55 @@ local act = wezterm.action
 local M = {}
 
 local sep = "/"
+local pathsep = ":"
 if wezterm.target_triple:find("windows") ~= nil then
 	sep = "\\"
+	pathsep = ";"
 end
 
-local rootPath = os.getenv("DEV")
-wezterm.log_info(rootPath)
-if rootPath == nil then
-	rootPath = wezterm.home_dir .. sep .. "development"
+---split a string `s` by its separator `separator`
+---@param s string
+---@param separator string?
+---@return table
+local function split(s, separator)
+	if separator == nil then
+		separator = "%s"
+	end
+	local t = {}
+	for str in string.gmatch(s, "([^" .. separator .. "]+)") do
+		table.insert(t, str)
+	end
+	return t
 end
 
-wezterm.log_info(rootPath)
+---merge two tables together and return merged tables
+---@param table1 table
+---@param table2 table
+---@return table
+local function merge(table1, table2)
+	local t = {}
+	for _, v in ipairs(table1) do
+		table.insert(t, v)
+	end
+	for _, v in ipairs(table2) do
+		table.insert(t, v)
+	end
+	return t
+end
 
 M.toggle_dev = function(window, pane)
+	local dev = os.getenv("DEV")
+	local devPaths = {}
+	if dev == nil then
+		---@type table
+		devPaths = { wezterm.home_dir .. sep .. "development" }
+	else
+		devPaths = split(dev, pathsep)
+	end
+
 	local projects = {}
 
-	local success, stdout, stderr = wezterm.run_child_process({
+	local success, stdout, stderr = wezterm.run_child_process(merge({
 		"fd",
 		"-t",
 		"d",
@@ -27,10 +60,7 @@ M.toggle_dev = function(window, pane)
 		"1",
 		"-u",
 		".",
-		rootPath,
-		-- rootPath .. sep .. "alerts-server",
-		-- add more paths here
-	})
+	}, devPaths))
 
 	if not success then
 		wezterm.log_error("Failed to run fd: " .. stderr)
