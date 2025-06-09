@@ -72,35 +72,9 @@ function conf([Parameter(Mandatory=$true)][string]$config)
     }
 }
 
-function ffd()
-{
-    fd -d 1 -t d -u . $env:DEV.split(";") | fzf | cd
-}
-
-function hdir([string]$new_dir)
-{
-    mkdir $new_dir;
-    cd $new_dir;
-}
-
-# Git pull nvim config
-function gitnvim([string]$cmd)
-{
-    git -C $env:LOCALAPPDATA/nvim $cmd
-}
-
 function which([string]$cmd)
 {
     (Get-Command $cmd | Format-Table -HideTableHeaders | Out-String).Trim()
-}
-
-function wf()
-{
-    if (Test-Path wails.json && Test-Path frontend)
-    {
-        cd frontend
-        npm run dev
-    }
 }
 
 function y()
@@ -115,11 +89,27 @@ function y()
     Remove-Item -Path $tmp
 }
 
-# Terminal Icons
-# Import-Module Terminal-Icons
-function ll
+# Check for modules
+function Get-ModuleInstalled([string]$module)
 {
-    exa -la --icons --group-directories-first --git
+    if (Get-Module -ListAvailable -Name $module)
+    {
+        return $true
+    }
+    return $false
+}
+
+# Terminal Icons
+if (Get-ModuleInstalled("Terminal-Icons"))
+{
+    Import-Module Terminal-Icons
+}
+
+if (!(Get-ModuleInstalled("posh-alias")))
+{
+    Write-Host "posh-alias not installed!"
+    Write-Host "Installing ..."
+    Install-PSResource -Name posh-alias
 }
 
 $docs = [Environment]::GetFolderPath("MyDocuments")
@@ -131,5 +121,8 @@ Set-Alias grep findstr
 Set-Alias lg lazygit
 Set-Alias ex explorer
 Set-Alias vim nvim
+Add-Alias gs "git status -s -b --show-stash"
+Add-Alias ll "exa -la --icons --group-directories-first --git"
+Add-Alias ffd 'fd -d 1 -t d -u . $env:DEV.split(";") | fzf | cd'
 # del alias:diff -Force
 # Set-Alias diff 'C:\Program Files\Git\usr\bin\diff.exe'
