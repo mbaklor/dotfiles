@@ -66,7 +66,7 @@ function conf([Parameter(Mandatory=$true)][string]$config)
     }
     if ($config -eq "ps")
     {
-        chezmoi edit Documents/PowerShell/Microsoft.PowerShell_profile.ps1;
+        chezmoi edit ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1;
         chezmoi apply;
         .$PROFILE;
     }
