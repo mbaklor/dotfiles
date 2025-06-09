@@ -16,19 +16,22 @@ function prompt
     return $out
 }
 
+# ReadLine handlers
 Set-PSReadLineKeyHandler -Chord UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord DownArrow -Function HistorySearchForward
 
 Set-PSReadLineKeyHandler -Chord Ctrl+y -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord Ctrl+p -ScriptBlock {
-    [Microsoft.PowerShell.PSConsoleReadLine]::SetMark()
-    [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchBackward()
-    [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
+    $cons=[Microsoft.PowerShell.PSConsoleReadLine]
+    $cons::SetMark()
+    $cons::HistorySearchBackward()
+    $cons::EndOfLine()
 }
 Set-PSReadLineKeyHandler -Chord Ctrl+n -ScriptBlock {
-    [Microsoft.PowerShell.PSConsoleReadLine]::SetMark()
-    [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchForward()
-    [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
+    $cons=[Microsoft.PowerShell.PSConsoleReadLine]
+    $cons::SetMark()
+    $cons::HistorySearchForward()
+    $cons::EndOfLine()
 }
 Set-PSReadLineKeyHandler -Chord Alt+x -Function ExchangePointAndMark
 
@@ -36,14 +39,15 @@ Set-PSReadLineKeyHandler -Chord Ctrl+a -Function BeginningOfLine
 Set-PSReadLineKeyHandler -Chord Ctrl+e -Function EndOfLine
 Set-PSReadLineKeyHandler -Chord Ctrl+b -Function BackwardChar
 Set-PSReadLineKeyHandler -Chord Alt+b -Function BackwardWord
+Set-PSReadLineKeyHandler -Chord Ctrl+f -Function ForwardChar
 Set-PSReadLineKeyHandler -Chord Alt+f -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+u -Function BackwardDeleteLine
 
-Set-PSReadLineKeyHandler -Chord Ctrl+f -ScriptBlock {
-    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("ffd")
-    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-}
+# Set-PSReadLineKeyHandler -Chord Ctrl+f -ScriptBlock {
+#     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+#     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("ffd")
+#     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+# }
 
 function conf([Parameter(Mandatory=$true)][string]$config)
 {
