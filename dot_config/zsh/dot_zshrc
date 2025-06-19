@@ -1,0 +1,37 @@
+# Lines configured by zsh-newuser-install
+setopt share_history
+HISTFILE=~/.local/state/zsh/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+# zstyle :compinstall filename '/home/mic/.zshrc'
+
+autoload -U compinit
+compinit
+# End of lines added by compinstall
+
+bindkey '[A' history-search-backward
+bindkey '[B' history-search-forward
+bindkey '' history-beginning-search-backward
+bindkey '' history-beginning-search-forward
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+alias vim=nvim
+alias ll="exa -la --icons --group-directories-first --git"
+alias lg="lazygit"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"

@@ -1,0 +1,2 @@
+export PATH=$PATH:/home/mic/go/bin:/usr/lib/go/bin
+export ZDOTDIR=${HOME}/.config/zsh
