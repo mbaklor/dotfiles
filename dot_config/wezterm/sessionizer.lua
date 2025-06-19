@@ -3,11 +3,44 @@ local act = wezterm.action
 
 local M = {}
 
+---@param label string
+local function getDevSpawn(label)
+	return {
+		domain = { DomainName = "local" },
+		cwd = label,
+		args = {
+			"/bin/zsh",
+			"-c",
+			"wezterm cli spawn --cwd " .. label .. " & nvim; zsh -i",
+		},
+	}
+end
+
 local sep = "/"
 local pathsep = ":"
 if wezterm.target_triple:find("windows") ~= nil then
 	sep = "\\"
 	pathsep = ";"
+
+	---@param label string
+	function getDevSpawn(label)
+		return {
+			domain = { DomainName = "local" },
+			cwd = label,
+			args = {
+				"pwsh",
+				"-NoExit",
+				"-c",
+				"wezterm",
+				"cli",
+				"spawn",
+				"--cwd",
+				label,
+				"&",
+				"nvim",
+			},
+		}
+	end
 end
 
 ---split a string `s` by its separator `separator`
@@ -84,22 +117,7 @@ M.toggle_dev = function(window, pane)
 					win:perform_action(
 						act.SwitchToWorkspace({
 							name = id,
-							spawn = {
-								domain = { DomainName = "local" },
-								cwd = label,
-								args = {
-									"pwsh",
-									"-NoExit",
-									"-c",
-									"wezterm",
-									"cli",
-									"spawn",
-									"--cwd",
-									label,
-									"&",
-									"nvim",
-								},
-							},
+							spawn = getDevSpawn(label),
 						}),
 						pane
 					)
