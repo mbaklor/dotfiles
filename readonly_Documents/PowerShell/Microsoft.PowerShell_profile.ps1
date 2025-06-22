@@ -108,5 +108,6 @@ Set-Alias vim nvim
 Add-Alias gs "git status -s -b --show-stash"
 Add-Alias ll "exa -la --icons --group-directories-first --git"
 Add-Alias ffd 'fd -d 1 -t d -u . $env:DEV.split(";") | fzf | cd'
+Add-Alias cddev 'cd $env:DEV.split(";")[0]'
 # del alias:diff -Force
 # Set-Alias diff 'C:\Program Files\Git\usr\bin\diff.exe'
