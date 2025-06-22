@@ -5,13 +5,13 @@ hash = "8f81ee91bc039adec835886a63a86671"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "63f9650"
-hash = "a65dc998e4742a4f6561623e6154e1b9"
+rev = "42f64c0"
+hash = "e671ad6617800ea6adae1ede7930c105"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "63f9650"
-hash = "c2c9ad90a84f9d86188a2b8b73a289c1"
+rev = "42f64c0"
+hash = "337259992d918f0b6d68d1a1b80e219e"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
