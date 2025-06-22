@@ -5,4 +5,6 @@ AppData
 Documents
 {{ else }}
 .config/yazi
+.config/zsh
+.zprofile
 {{- end }}
