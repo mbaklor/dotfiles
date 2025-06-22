@@ -2,9 +2,6 @@
 
 {{ range .packages.windows.scoop.buckets -}}
 scoop bucket add {{ . }} & ^
-{{- end -}}
-{{ range $i, $v := .packages.windows.scoop.apps -}}
-{{if $i}} & ^{{end}}
-scoop install {{ $v }}
-{{- end -}}
+{{- end }}
+scoop install {{- range .packages.windows.scoop.apps }} {{.}} {{- end }}
 {{ end -}}
