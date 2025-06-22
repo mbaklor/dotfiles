@@ -33,6 +33,7 @@ packages:
         - resvg
         - ripgrep
         - scoop-search
+        - starship
         - task
         - wezterm
         - yazi
