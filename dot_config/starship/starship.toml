@@ -22,7 +22,7 @@ repo_root_style="bold sky"
 truncation_symbol = '…/'
 
 [os]
-style = "bold maroon"
+style = "maroon"
 disabled = false
 
 [palettes.catppuccin_mocha]
@@ -98,5 +98,5 @@ SUSE = " "
 Ubuntu = " "
 Unknown = " "
 Void = " "
-Windows = "󰍲 "
+Windows = " "
 

@@ -20,6 +20,7 @@ packages:
         - gsudo
         - hack-nf
         - hack-nf-mono
+        - hack-nf-propo
         - imagemagick
         - jq
         - lazygit

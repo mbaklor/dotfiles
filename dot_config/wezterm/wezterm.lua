@@ -33,7 +33,7 @@ bar.apply_to_config(config, {
 
 config.colors.tab_bar.active_tab.bg_color = ctp.get_color("macchiato", "green")
 
-config.font = wezterm.font("Hack Nerd Font Mono", { weight = "Regular" })
+config.font = wezterm.font("Hack Nerd Font Propo", { weight = "Regular" })
 config.font_size = 12
 
 config.window_decorations = "NONE"
