@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+{{ if  eq .chezmoi.osRelease.id "fedora" -}}
+sudo dnf install -y {{ range .packages.linux.apps }} {{ . }} {{- end }}
+{{ end }}
+
+{{ end }}

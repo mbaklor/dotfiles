@@ -39,3 +39,29 @@ packages:
         - wezterm
         - yazi
         - zoxide
+
+  linux:
+    copr:
+      - agriffis/neovim-nightly
+      - wezfurlong/wezterm-nightly
+      - lihaohong/yazi
+    apps:
+      - eza
+      - fd
+      - fzf
+      - gh
+      - go
+      - hack-nerd-fonts
+      - ImageMagick
+      - jq
+      - lazygit
+      - neovim
+      - poppler
+      - resvg
+      - ripgrep
+      - starship
+      - task
+      - wezterm
+      - yazi
+      - zoxide
+      - zsh

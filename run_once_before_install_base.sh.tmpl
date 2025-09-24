@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ range .packages.linux.copr -}}
+sudo dnf copr enable -y {{ . }}
+{{ end }}
+{{ end }}
+
+chsh -s /usr/bin/zsh
+{{ end }}
