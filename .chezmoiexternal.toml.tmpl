@@ -6,3 +6,10 @@
 {{end -}}
     type = "git-repo"
     url = "https://github.com/mbaklor/nvim"
+
+{{ if eq .chezmoi.os "linux" -}}
+[".config/zsh/zsh-autosuggestions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-autosuggestions"
+    refreshPeriod = "168h"
+{{ end }}

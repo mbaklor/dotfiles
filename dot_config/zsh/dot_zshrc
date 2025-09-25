@@ -13,10 +13,24 @@ autoload -U compinit
 compinit
 # End of lines added by compinstall
 
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+function mark-history-backward() {
+    zle set-mark-command
+    zle history-search-backward
+}
+
+function mark-history-forward() {
+    zle set-mark-command
+    zle history-search-forward
+}
+zle -N mark-history-backward
+zle -N mark-history-forward
+
 bindkey '[A' history-search-backward
 bindkey '[B' history-search-forward
-bindkey '' history-search-backward
-bindkey '' history-search-forward
+bindkey '' mark-history-backward
+bindkey '' mark-history-forward
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
