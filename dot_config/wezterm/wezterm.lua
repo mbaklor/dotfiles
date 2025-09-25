@@ -33,7 +33,10 @@ bar.apply_to_config(config, {
 
 config.colors.tab_bar.active_tab.bg_color = ctp.get_color("macchiato", "green")
 
-config.font = wezterm.font("Hack Nerd Font Propo", { weight = "Regular" })
+config.font = wezterm.font_with_fallback({
+	{ family = "Maple Mono NF", harfbuzz_features = { "calt=0", "clig=0", "liga=0", "feat=cv35" }, weight = "Regular" },
+	{ family = "Hack Nerd Font Propo", weight = "Regular" },
+})
 config.font_size = 12
 
 config.window_decorations = "NONE"
