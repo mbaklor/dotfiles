@@ -15,8 +15,8 @@ compinit
 
 bindkey '[A' history-search-backward
 bindkey '[B' history-search-forward
-bindkey '' history-beginning-search-backward
-bindkey '' history-beginning-search-forward
+bindkey '' history-search-backward
+bindkey '' history-search-forward
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
