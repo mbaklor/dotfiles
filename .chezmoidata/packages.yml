@@ -55,6 +55,7 @@ packages:
       - ImageMagick
       - jq
       - lazygit
+      - maple-fonts
       - neovim
       - poppler
       - resvg
