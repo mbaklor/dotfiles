@@ -26,6 +26,7 @@ packages:
         - lazygit
         - less
         - lua-language-server
+        - Maple-Mono-NF
         - mingw-mstorsjo-llvm-ucrt
         - neovim-nightly
         - nodejs
