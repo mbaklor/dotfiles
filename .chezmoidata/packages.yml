@@ -37,6 +37,7 @@ packages:
         - scoop-search
         - starship
         - task
+        - tree-sitter
         - wezterm
         - yazi
         - zoxide
