@@ -36,7 +36,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 alias vim=nvim
-alias ll="exa -la --icons --group-directories-first --git"
+alias ll="eza -la --icons --group-directories-first --git"
 alias lg="lazygit"
 
 function y() {
