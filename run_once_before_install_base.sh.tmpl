@@ -1,13 +1,13 @@
 {{ if eq .chezmoi.os "linux" -}}
-#!/bin/bash
+#!{{ .bash }}
 
-{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ if and (hasKey .chezmoi "osRelease") (eq .chezmoi.osRelease.id "fedora") -}}
 {{ range .packages.linux.copr -}}
 sudo dnf copr enable -y {{ . }}
 {{ end }}
 {{ end }}
 
-{{ if eq .chezmoi.osRelease.variantID "kde" -}}
+{{ if and (hasKey .chezmoi "osRelease") (eq .chezmoi.osRelease.variantID "kde") -}}
 kwriteconfig6 --file kglobalshortcutsrc --group services --group org.wezfurlong.wezterm.desktop --key _launch 'Meta+`'
 {{ end }}
 chsh -s /usr/bin/zsh

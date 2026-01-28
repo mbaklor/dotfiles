@@ -1,13 +1,12 @@
 {{ if eq .chezmoi.os "windows" -}}
 ["./AppData/Local/nvim"]
-{{end -}}
-{{ if eq .chezmoi.os "linux" -}}
+{{- else -}}
 [".config/nvim"]
 {{end -}}
     type = "git-repo"
     url = "https://github.com/mbaklor/nvim"
 
-{{ if eq .chezmoi.os "linux" -}}
+{{ if ne .chezmoi.os "windows" -}}
 [".config/zsh/zsh-autosuggestions"]
     type = "git-repo"
     url = "https://github.com/zsh-users/zsh-autosuggestions"

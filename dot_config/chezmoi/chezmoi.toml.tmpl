@@ -1,0 +1,7 @@
+[data]
+    {{- if eq .chezmoi.os "linux" }}
+    bash = "/usr/bin/env bash"
+    {{- end }}
+    {{- if eq .chezmoi.os "android" }}
+    bash = "/data/data/com.termux/files/usr/bin/bash"
+    {{ end -}}

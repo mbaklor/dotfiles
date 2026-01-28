@@ -8,3 +8,9 @@ Documents
 .config/zsh
 .zprofile
 {{- end }}
+
+{{- if ne .chezmoi.os "android" }}
+.termux
+{{ else }}
+.config/wezterm
+{{- end }}

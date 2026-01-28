@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.os "android" -}}
+#!{{ .bash }}
+
+pkg install -y {{ range .packages.android.apps }} {{ . }} {{- end }}
+
+{{ end }}

@@ -68,3 +68,20 @@ packages:
       - yazi
       - zoxide
       - zsh
+  android:
+    apps:
+      - eza
+      - fd
+      - file
+      - fzf
+      - gh
+      - golang
+      - jq
+      - neovim-nightly
+      - nodejs
+      - poppler
+      - ripgrep
+      - starship
+      - yazi
+      - zoxide
+      - zsh
