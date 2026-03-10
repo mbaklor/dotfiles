@@ -64,6 +64,7 @@ packages:
       - ripgrep
       - starship
       - task
+      - tree-sitter
       - wezterm
       - yazi
       - zoxide
