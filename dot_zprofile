@@ -1,2 +1,4 @@
-export PATH=$PATH:/home/mic/go/bin:/usr/lib/go/bin
+export PATH=$PATH:/home/mic/go/bin:/usr/lib/go/bin:/home/mic/.local/bin
 export ZDOTDIR=${HOME}/.config/zsh
+export VISUAL=nvim
+export EDITOR="$VISUAL"

@@ -32,9 +32,6 @@ bindkey '[B' history-search-forward
 bindkey '' mark-history-backward
 bindkey '' mark-history-forward
 
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
 alias vim=nvim
 alias ll="eza -la --icons --group-directories-first --git"
 alias lg="lazygit"
