@@ -9,9 +9,9 @@ local function getDevSpawn(label)
 		domain = { DomainName = "local" },
 		cwd = label,
 		args = {
-			"/bin/zsh",
+			"/bin/fish",
 			"-c",
-			"wezterm cli spawn --cwd " .. label .. " & nvim; zsh -i",
+			"wezterm cli spawn --cwd " .. label .. " & nvim; fish -i",
 		},
 	}
 end

@@ -50,6 +50,7 @@ packages:
     apps:
       - eza
       - fd
+      - fish
       - fzf
       - gh
       - go
