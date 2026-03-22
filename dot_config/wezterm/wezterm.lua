@@ -41,9 +41,13 @@ config.font_size = 12
 
 config.window_decorations = "NONE"
 config.use_fancy_tab_bar = false
-config.enable_wayland = false
 config.default_prog = { "fish" }
 -- config.hide_tab_bar_if_only_one_tab = true
+
+if os.getenv("XDG_CURRENT_DESKTOP") == "KDE" then
+	config.window_background_opacity = 0.85
+	config.kde_window_background_blur = true
+end
 
 if wezterm.target_triple:find("windows") ~= nil then
 	config.window_decorations = "RESIZE"
