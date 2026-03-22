@@ -6,6 +6,8 @@ Documents
 {{ else }}
 .config/yazi
 .config/zsh
+.config/fish
+.profile
 .zprofile
 {{- end }}
 
