@@ -2,12 +2,12 @@
 $env:STARSHIP_CONFIG = "$HOME\.config\starship\starship.toml"
 Invoke-Expression (&starship init powershell)
 $prompt = ""
+        $ansi_escape = [char]27
 function Invoke-Starship-PreCommand
 {
     $current_location = $executionContext.SessionState.Path.CurrentLocation
     if ($current_location.Provider.Name -eq "FileSystem")
     {
-        $ansi_escape = [char]27
         $provider_path = $current_location.ProviderPath -replace "\\", "/"
         $prompt = "$ansi_escape]7;file://${env:COMPUTERNAME}/${provider_path}$ansi_escape\"
     }
@@ -111,3 +111,28 @@ Add-Alias ffd 'fd -d 1 -t d -u . $env:DEV.split(";") | fzf | cd'
 Add-Alias cddev 'cd $env:DEV.split(";")[0]'
 # del alias:diff -Force
 # Set-Alias diff 'C:\Program Files\Git\usr\bin\diff.exe'
+Write-Output "$ansi_escape[34m        ▒▒
+        ▒▒▒            ▒▓
+       ▒▒▒▒▒▒       ▒▓▓▓▓
+       ▒▒▒▒▒▒▒    ▒▓▓▓▓▓▒      ▒▒▒▒▒▒▒▒▒▒
+       ▒▒▒▒▒▒▒▓ ▒▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓
+      ▒▒▒▒▒▒▓▒▒▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒
+      ▒▒▒▒▒▒▓▒▒▓▓▓▓▓▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▓▒  ▒▒
+       ▓▒▒▒▒▓▓▒▓▓▓▒▒▒▒▓▓▓▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▒▒
+        ▒▒▓▓▒▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒
+         ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒
+           ▒▓▓▓▓▓▓▓▓▓▓▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+       ▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+     ▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+   ▒▓▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▓▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒
+   ▓▒▒▒▒▒▒▓▓▓▓▒▒▓▓▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒▒
+  ▒▒▒▒▒▒▒▒▓▒▒▓▒▒▒▒▒▒▒▒▒▒▒▓
+   ▒▒▒▒▒▒▒▓▒▓▒▒▒▒▒▒▒▒▒▒▒▒▓
+    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓
+     ▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓
+       ▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▓▒
+      ▒▓▓▓▓▓▒▒▒▓▓▓▓▓▒
+     ▒▓▓▓▓▓▓   ▓▓▓▓▓▒
+     ▒▓▓▓▓▓▒  ▓▓▓▓▓▓▓
+      ▒▒▒▒    ▓▓▓▓▓▓▒
+              ▒▓▒▒▓▒$ansi_escape[0m"
