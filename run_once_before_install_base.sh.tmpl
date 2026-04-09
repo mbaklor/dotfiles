@@ -1,5 +1,5 @@
 {{ if eq .chezmoi.os "linux" -}}
-#!{{ .bash }}
+#!/usr/bin/env bash
 
 {{ if and (hasKey .chezmoi "osRelease") (eq .chezmoi.osRelease.id "fedora") -}}
 {{ range .packages.linux.copr -}}
