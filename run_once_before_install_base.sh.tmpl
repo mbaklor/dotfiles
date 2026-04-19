@@ -10,7 +10,7 @@ if [[ -f "$HOME/.bash_profile" ]] then
 fi
 {{ end }}
 
-{{ if and (hasKey .chezmoi "osRelease") (eq .chezmoi.osRelease.variantID "kde") -}}
+if [["$XDG_CURRENT_DESKTOP" == "KDE"]]; then
 kwriteconfig6 --file kglobalshortcutsrc --group services --group org.wezfurlong.wezterm.desktop --key _launch 'Meta+`'
-{{ end }}
+fi
 {{ end }}
