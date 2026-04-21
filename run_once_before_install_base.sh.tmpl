@@ -5,10 +5,11 @@
 {{ range .packages.linux.copr -}}
 sudo dnf copr enable -y {{ . }}
 {{ end }}
+{{ end }}
+
 if [[ -f "$HOME/.bash_profile" ]] then
     rm "$HOME/.bash_profile"
 fi
-{{ end }}
 
 if [["$XDG_CURRENT_DESKTOP" == "KDE"]]; then
 kwriteconfig6 --file kglobalshortcutsrc --group services --group org.wezfurlong.wezterm.desktop --key _launch 'Meta+`'

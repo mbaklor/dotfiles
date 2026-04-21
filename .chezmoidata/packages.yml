@@ -47,26 +47,37 @@ packages:
       - agriffis/neovim-nightly
       - wezfurlong/wezterm-nightly
       - lihaohong/yazi
+    fedora:
+      apps:
+        - gh
+        - hack-nerd-fonts
+        - ImageMagick
+        - maple-fonts
+        - neovim
+        - wezterm
+    arch:
+      apps:
+        - github-cli
+        - imagemagick
+      aur:
+        - ttf-hack-nerd
+        - maplemono-nf
+        - neovim-nightly-bin
+        - wezterm-nightly-bin
     apps:
       - eza
       - fd
       - fish
       - fzf
-      - gh
       - go
-      - hack-nerd-fonts
-      - ImageMagick
       - jq
       - lazygit
-      - maple-fonts
-      - neovim
       - poppler
       - resvg
       - ripgrep
       - starship
       - task
       - tree-sitter
-      - wezterm
       - yazi
       - zoxide
       - zsh
