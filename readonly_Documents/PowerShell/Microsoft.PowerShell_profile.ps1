@@ -2,7 +2,7 @@
 $env:STARSHIP_CONFIG = "$HOME\.config\starship\starship.toml"
 Invoke-Expression (&starship init powershell)
 $prompt = ""
-        $ansi_escape = [char]27
+$ansi_escape = [char]27
 function Invoke-Starship-PreCommand
 {
     $current_location = $executionContext.SessionState.Path.CurrentLocation
@@ -31,6 +31,24 @@ Set-PSReadLineKeyHandler -Chord Ctrl+n -ScriptBlock {
     $cons::SetMark()
     $cons::HistorySearchForward()
     $cons::EndOfLine()
+}
+
+Set-PSReadLineKeyHandler -Chord Ctrl+e -ScriptBlock {
+    param($key, $arg)
+
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+    if ($cursor -eq $line.Length)
+    {
+        # At end of line, accept suggestion
+        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptSuggestion($key, $arg)
+    } else
+    {
+        # Not at end of line, move to end
+        [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine($key, $arg)
+    }
 }
 
 function conf([Parameter(Mandatory=$true)][string]$config)
