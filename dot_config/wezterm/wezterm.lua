@@ -46,7 +46,7 @@ config.default_prog = { "fish" }
 
 if os.getenv("XDG_CURRENT_DESKTOP") == "KDE" then
 	config.window_background_opacity = 0.85
-	config.kde_window_background_blur = true
+	config.wayland_window_background_blur = true
 end
 
 if wezterm.target_triple:find("windows") ~= nil then
