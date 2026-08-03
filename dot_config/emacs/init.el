@@ -61,6 +61,10 @@
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
+(use-package nerd-icons-dired)
+(use-package nerd-icons-completion)
+(nerd-icons-completion-mode)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 
 ;; (prefer-coding-system 'utf-8)
 ;; (set-default-coding-systems 'utf-8)
