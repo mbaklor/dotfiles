@@ -6,9 +6,10 @@
 (menu-bar-mode -1)
 (tooltip-mode -1)
 (savehist-mode)
-;; (set-fringe-mode 10)
+(save-place-mode)
 
 (setq display-line-numbers-type 'relative)
+(column-number-mode)
 (global-display-line-numbers-mode 1)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -35,27 +36,25 @@
   (package-install 'catppuccin-theme))
 (load-theme 'catppuccin t)
 
+
 (use-package vertico
-  :init (vertico-mode))
-
-;; (use-package smex)
-;; (use-package ido-completing-read+)
-;; (ido-mode)
-;; (ido-everywhere)
-
-;; (keymap-global-set "M-x" 'smex)
-;; (keymap-global-set "C-c C-c M-x" 'execute-extended-command)
-
-;; (use-package ivy
-;;   :diminish
-;;   :bind (("C-s" . swiper))
-;;   :config
-;;   (ivy-mode 1)
-;;   (setq ivy-re-builders-alist
-;; 	'((swiper . ivy--regex-plus)
-;; 	  (t . ivy--regex-fuzzy))
-;; 	))
-;; (use-package counsel)
+  :init (vertico-mode)
+  :custom (vertico-cycle t))
+(use-package marginalia
+  :after vertico
+  :init (marginalia-mode))
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic)))
+(use-package consult
+  :bind (
+	 ("C-x b" . consult-buffer)
+	 ("C-x p b" . consult-project-buffer)
+	 ("M-g g" . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)
+	 ("M-s f" . consult-fd)
+	 ("M-s s" . consult-ripgrep)
+         ("M-s l" . consult-line)))
 
 (use-package nerd-icons)
 (setq nerd-icons-font-family "Maple Mono NF")
@@ -84,8 +83,11 @@
  '(custom-safe-themes
    '("c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
      default))
+ '(enable-recursive-minibuffers t)
+ '(package-selected-packages nil)
  '(package-vc-selected-packages
-   '((svelte-ts-mode :url "https://github.com/leafOfTree/svelte-ts-mode"))))
+   '((svelte-ts-mode :url "https://github.com/leafOfTree/svelte-ts-mode")))
+ '(read-extended-command-predicate 'command-completion-default-include-p))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
