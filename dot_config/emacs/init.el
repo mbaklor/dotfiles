@@ -19,20 +19,21 @@
 (setq scroll-conservatively 101)
 
 (require 'package)
-
-;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(load (get-from-user-directory "rc.el"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
+
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
 (require 'use-package)
 (setq use-package-always-ensure t)
 
 (setq catppuccin-flavor 'macchiato)
-(rc/require-theme 'catppuccin)
+(unless (package-installed-p 'catppuccin)
+  (message "ctp not installed -> installing")
+  (package-install 'catppuccin-theme))
+(load-theme 'catppuccin t)
 
 (use-package vertico
   :init (vertico-mode))
@@ -80,9 +81,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(catppuccin-theme counsel dash-functional doom-modeline
-		      ido-completing-read+ smex svelte-ts-mode vertico))
+ '(custom-safe-themes
+   '("c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
+     default))
  '(package-vc-selected-packages
    '((svelte-ts-mode :url "https://github.com/leafOfTree/svelte-ts-mode"))))
 (custom-set-faces
