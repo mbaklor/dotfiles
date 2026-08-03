@@ -66,18 +66,12 @@
 (nerd-icons-completion-mode)
 (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 
+(load-file (get-from-user-directory "languages.el"))
+
 ;; (prefer-coding-system 'utf-8)
 ;; (set-default-coding-systems 'utf-8)
 ;; (set-language-environment 'utf-8)
 ;; (set-selection-coding-system 'utf-8)
-
-;; TODO: add golang treesitter, add javascript typescript css html treesitter, auto start eglot
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-ts-mode))
-(use-package svelte-ts-mode
-  :vc (:url "https://github.com/leafOfTree/svelte-ts-mode"))
-(add-to-list 'treesit-language-source-alist '(svelte "https://github.com/tree-sitter-grammars/tree-sitter-svelte"))
-
-(add-to-list 'auto-mode-alist '("\\.svelte\\'" . svelte-ts-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
