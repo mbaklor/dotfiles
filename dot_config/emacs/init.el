@@ -1,5 +1,5 @@
-(defun get-from-user-directory (filename)
-  (concat user-emacs-directory filename))
+(defun expand-file-user-directory (filename)
+  (expand-file-name filename user-emacs-directory))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -18,6 +18,15 @@
 (setq visible-bell t)
 (setq scroll-margin 8)
 (setq scroll-conservatively 101)
+(defalias 'yes-or-no-p 'y-or-n-p)
+(setq-default tab-width 4)
+
+(setq savehist-file (expand-file-user-directory "files/history"))
+(setq backup-directory-alist `((".*" . ,(expand-file-user-directory "files/backups"))))
+(make-directory (expand-file-user-directory "files/autosaves/") t)
+(setq auto-save-list-file-prefix (expand-file-user-directory "files/autosaves/sessions/.saves-"))
+(setq auto-save-file-name-transforms `((".*" ,(expand-file-user-directory "files/autosaves/") t)))
+(setq create-lockfiles nil)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -72,8 +81,8 @@
 (use-package nerd-icons-completion)
 (nerd-icons-completion-mode)
 (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+(load-file (expand-file-user-directory "init/languages.el"))
 
-(load-file (get-from-user-directory "init/languages.el"))
 
 ;; (prefer-coding-system 'utf-8)
 ;; (set-default-coding-systems 'utf-8)
