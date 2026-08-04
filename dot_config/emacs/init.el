@@ -5,11 +5,16 @@
   "Load projects to `projects.el' from the env-var of $DEV
 This function parses the $DEV environment variable.
 It makes a list of paths out of it, and calls
-`project-remember-projects-under' with each entry"
+`project-remember-projects-under' with each entry
+
+If the env var is empty, default to ~/development"
   (interactive)
   (let ((delimiter (if (eq system-type 'windows-nt) ";" ":")))
-    (dolist (dir (string-split (getenv "DEV") delimiter))
-      (project-remember-projects-under dir))))
+	(let ((dev (getenv "DEV")))
+	  (if dev
+		  (dolist (dir (string-split dev delimiter))
+			(project-remember-projects-under dir))
+		(project-remember-projects-under "~/development")))))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
