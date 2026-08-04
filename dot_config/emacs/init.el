@@ -55,7 +55,14 @@
 	 ("M-s f" . consult-fd)
 	 ("M-s s" . consult-ripgrep)
          ("M-s l" . consult-line)))
-
+(use-package corfu
+    :custom 
+             (corfu-auto t)
+             (corfu-auto-delay 0.1)
+             (corfu-auto-prefix 2)
+             :init
+             (global-corfu-mode)
+             )
 (use-package nerd-icons)
 (setq nerd-icons-font-family "Maple Mono NF")
 (use-package doom-modeline
