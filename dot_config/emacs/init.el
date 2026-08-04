@@ -1,6 +1,16 @@
 (defun expand-file-user-directory (filename)
   (expand-file-name filename user-emacs-directory))
 
+(defun load-dev-projects ()
+  "Load projects to `projects.el' from the env-var of $DEV
+This function parses the $DEV environment variable.
+It makes a list of paths out of it, and calls
+`project-remember-projects-under' with each entry"
+  (interactive)
+  (let ((delimiter (if (eq system-type 'windows-nt) ";" ":")))
+    (dolist (dir (string-split (getenv "DEV") delimiter))
+      (project-remember-projects-under dir))))
+
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -94,6 +104,8 @@
 
 (load-file (expand-file-user-directory "init/languages.el"))
 
+(with-eval-after-load 'project
+  (load-dev-projects))
 
 ;; (prefer-coding-system 'utf-8)
 ;; (set-default-coding-systems 'utf-8)
