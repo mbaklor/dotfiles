@@ -66,7 +66,7 @@
 (nerd-icons-completion-mode)
 (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 
-(load-file (get-from-user-directory "languages.el"))
+(load-file (get-from-user-directory "init/languages.el"))
 
 ;; (prefer-coding-system 'utf-8)
 ;; (set-default-coding-systems 'utf-8)
