@@ -40,7 +40,7 @@
 (setq use-package-always-ensure t)
 
 (setq catppuccin-flavor 'macchiato)
-(unless (package-installed-p 'catppuccin)
+(unless (package-installed-p 'catppuccin-theme))
   (message "ctp not installed -> installing")
   (package-install 'catppuccin-theme))
 (load-theme 'catppuccin t)
