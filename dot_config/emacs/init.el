@@ -48,6 +48,8 @@
 
 (use-package vertico
   :init (vertico-mode)
+  :bind (:map vertico-map
+			  ("C-y" . vertico-insert))
   :custom (vertico-cycle t))
 (use-package marginalia
   :after vertico
@@ -65,22 +67,31 @@
 	 ("M-s s" . consult-ripgrep)
          ("M-s l" . consult-line)))
 (use-package corfu
-    :custom 
-             (corfu-auto t)
-             (corfu-auto-delay 0.1)
-             (corfu-auto-prefix 2)
-             :init
-             (global-corfu-mode)
-             )
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.1)
+  (corfu-auto-prefix 2)
+  (corfu-cycle t)
+  :bind (
+	 :map corfu-map
+	 ("C-y" . corfu-complete))
+  :init
+  (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  (corfu-history-mode))
+
 (use-package nerd-icons)
 (setq nerd-icons-font-family "Maple Mono NF")
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
 (use-package nerd-icons-dired)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 (use-package nerd-icons-completion)
 (nerd-icons-completion-mode)
-(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+(use-package nerd-icons-corfu)
+(add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
+
 (load-file (expand-file-user-directory "init/languages.el"))
 
 
@@ -98,7 +109,11 @@
    '("c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
      default))
  '(enable-recursive-minibuffers t)
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(catppuccin-theme consult corfu doom-modeline ghostel marginalia
+		      nerd-icons-completion nerd-icons-corfu
+		      nerd-icons-dired orderless svelte-ts-mode
+		      vertico))
  '(package-vc-selected-packages
    '((svelte-ts-mode :url "https://github.com/leafOfTree/svelte-ts-mode")))
  '(read-extended-command-predicate 'command-completion-default-include-p))
