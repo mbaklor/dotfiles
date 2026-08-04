@@ -52,7 +52,7 @@ It makes a list of paths out of it, and calls
 (setq catppuccin-flavor 'macchiato)
 (unless (package-installed-p 'catppuccin-theme))
   (message "ctp not installed -> installing")
-  (package-install 'catppuccin-theme))
+  (package-install 'catppuccin-theme)
 (load-theme 'catppuccin t)
 
 
