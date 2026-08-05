@@ -55,9 +55,9 @@ If the env var is empty, default to ~/development"
 (setq use-package-always-ensure t)
 
 (setq catppuccin-flavor 'macchiato)
-(unless (package-installed-p 'catppuccin-theme))
+(unless (package-installed-p 'catppuccin-theme)
   (message "ctp not installed -> installing")
-  (package-install 'catppuccin-theme)
+  (package-install 'catppuccin-theme))
 (load-theme 'catppuccin t)
 
 
