@@ -143,4 +143,4 @@ Set-Alias -Name zi -Value __zoxide_zi -Option AllScope -Scope Global -Force
 # To initialize zoxide, add this to your configuration (find it by running
 # `echo $profile` in PowerShell):
 #
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
