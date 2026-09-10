@@ -5,6 +5,9 @@
 {{- end }}
     type = "git-repo"
     url = "https://github.com/mbaklor/nvim"
+[".config/emacs"]
+    type = "git-repo"
+    url = "https://github.com/mbaklor/emacs"
 
 {{ if ne .chezmoi.os "windows" -}}
 [".config/zsh/zsh-autosuggestions"]
