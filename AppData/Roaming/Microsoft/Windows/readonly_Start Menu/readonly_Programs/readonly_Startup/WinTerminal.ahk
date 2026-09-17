@@ -36,3 +36,5 @@ SwitchToWezterm() {
 
 #+`::SwitchToWindowsTerminal()
 #`::SwitchToWezterm()
+
+#/::SwitchToWindow("ahk_class Emacs", "runemacs.exe")
